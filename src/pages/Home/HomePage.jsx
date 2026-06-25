@@ -1,9 +1,15 @@
+import About from "../About/About"
+import Hero from "../Hero/Hero"
+import Project from "../Projects/Project"
+import Skills from "../Skills/Skill"
 
 const HomePage = () => {
     return (
         <div>
-            <h1>Homepage</h1>
-            <p>Main page</p>
+            <Hero />
+            <About />
+            <Skills />
+            <Project />
         </div>
     )
 }
