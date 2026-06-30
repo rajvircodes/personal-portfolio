@@ -1,16 +1,9 @@
-import About from "../About/About"
-import Hero from "../Hero/Hero"
-import Project from "../Projects/Project"
-import Skills from "../Skills/Skill"
+import Hero from '../../sections/Hero/Hero'
 
 const HomePage = () => {
     return (
-        <div>
-            <Hero />
-            <About />
-            <Skills />
-            <Project />
-        </div>
+        <Hero />
+
     )
 }
 
