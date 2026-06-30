@@ -1,4 +1,4 @@
-const Cv = () => {
+const CV = () => {
     return (
         <>
             <h1>CV Page</h1>
@@ -6,4 +6,4 @@ const Cv = () => {
     );
 };
 
-export default Cv;
+export default CV;
