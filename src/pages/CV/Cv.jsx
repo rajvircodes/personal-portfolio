@@ -1,11 +1,9 @@
-
 const Cv = () => {
     return (
-        <div>
-            <h1>Resume</h1>
-            <p>There si a lot about me</p>
-        </div>
-    )
-}
+        <>
+            <h1>CV Page</h1>
+        </>
+    );
+};
 
-export default Cv
+export default Cv;

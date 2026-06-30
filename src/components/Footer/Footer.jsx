@@ -1,11 +1,9 @@
 const Footer = () => {
-
     return (
-        <div>
-            <h1>Footer</h1>
-            <p>Footer always stay below</p>
-        </div>
-    )
-}
+        <footer>
+            <p>© 2026 Rajvirsinh</p>
+        </footer>
+    );
+};
 
-export default Footer
+export default Footer;
