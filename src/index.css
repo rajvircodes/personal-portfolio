@@ -25,8 +25,6 @@
   --transition: 0.3s ease;
 }
 
-
-
 *,
 *::before,
 *::after {
@@ -34,8 +32,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-
 
 html {
   scroll-behavior: smooth;
@@ -68,8 +64,6 @@ ul {
   list-style: none;
 }
 
-
-
 .container {
   width: min(90%, var(--max-width));
   margin: auto;
@@ -79,11 +73,11 @@ ul {
   padding: 5rem 0;
 }
 
-.section-title {
+/* .section-title {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 3rem;
-}
+} */
 
 .btn {
   display: inline-block;
@@ -97,8 +91,6 @@ ul {
 .btn:hover {
   background: var(--primary-hover);
 }
-
-
 
 @media (max-width: 768px) {
   .section {
