@@ -80,6 +80,7 @@ const Hero = () => {
                     <img
                         src={profile.avatar}
                         alt={profile.name}
+                        loading="eager"
                     />
 
                 </div>
