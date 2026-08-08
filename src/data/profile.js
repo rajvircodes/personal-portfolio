@@ -1,3 +1,4 @@
+import profileImg from "../assets/profile.png";
 const profile = {
   name: "Rajvirsinh",
 
@@ -8,7 +9,7 @@ const profile = {
 
   resume: "/resume.pdf",
 
-  avatar: "/profile.png",
+  avatar: profileImg,
 };
 
 export default profile;

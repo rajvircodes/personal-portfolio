@@ -1,9 +1,9 @@
 const social = {
   github: "https://github.com/rajvircodes",
 
-  linkedin: "YOUR_LINKEDIN",
+  linkedin: "https://www.linkedin.com/in/rajvirsinhgohil",
 
-  email: "YOUR_EMAIL",
+  email: "rajvirsinh004@gmail.com",
 };
 
 export default social;
