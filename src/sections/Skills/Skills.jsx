@@ -1,6 +1,6 @@
 import "./Skills.css";
 
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import SectionTitle from "../../components/sectionTitle/SectionTitle";
 import SkillCard from "../../components/SkillCard/SkillCard";
 
 import skills from "../../data/skills";

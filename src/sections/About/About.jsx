@@ -1,6 +1,6 @@
 import "./About.css";
 
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import SectionTitle from "../../components/sectionTitle/SectionTitle";
 import about from "../../data/about";
 
 const About = () => {
