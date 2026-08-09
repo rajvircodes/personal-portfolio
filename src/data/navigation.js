@@ -24,6 +24,11 @@ const navigation = [
     name: "Contact",
     href: "#contact",
   },
+  {
+    id: 6,
+    name: "Education",
+    href: "#education",
+  },
 ];
 
 export default navigation;
