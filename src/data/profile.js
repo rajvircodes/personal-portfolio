@@ -7,7 +7,7 @@ const profile = {
   intro:
     "I build scalable web applications using React, Node.js, Express.js and MongoDB with a strong focus on backend architecture, clean code and performance.",
 
-  resume: "/resume.pdf",
+  resume: "../public/resume.pdf",
 
   avatar: profileImg,
 };
