@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="container footer__container">
 
                 <div className="footer__brand">
-                    <a href="#hero" className="footer__logo">
+                    <a href="/#hero" className="footer__logo">
                         {profile.name}
                     </a>
 

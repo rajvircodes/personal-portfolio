@@ -28,9 +28,8 @@ const Hero = () => {
                     </p>
 
                     <div className="hero__buttons">
-
                         <a
-                            href="#projects"
+                            href="/#projects"
                             className="btn"
                         >
                             View Projects

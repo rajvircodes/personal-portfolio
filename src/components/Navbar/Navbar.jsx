@@ -33,7 +33,7 @@ const Navbar = () => {
                             <li key={item.id}>
 
                                 <a
-                                    href={item.href}
+                                    href={`/${item.href}`}
                                     onClick={closeMenu}
                                     className="navbar__link"
                                 >
@@ -79,11 +79,13 @@ const Navbar = () => {
                             <li key={item.id}>
 
                                 <a
-                                    href={item.href}
+                                    href={`/${item.href}`}
                                     onClick={closeMenu}
+                                    className="navbar__link"
                                 >
                                     {item.name}
                                 </a>
+
 
                             </li>
                         ))}
