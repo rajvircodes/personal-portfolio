@@ -1,5 +1,5 @@
 import "./ProjectCard.css";
-
+import { Link } from "react-router-dom";
 const ProjectCard = ({ project }) => {
     return (
         <article className="project-card">
@@ -33,6 +33,10 @@ const ProjectCard = ({ project }) => {
                 </ul>
 
                 <div className="project-card__links">
+
+                    <Link to={`/project/${project.id}`}>
+                        View Project
+                    </Link>
 
                     {project.github && (
                         <a

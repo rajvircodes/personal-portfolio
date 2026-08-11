@@ -4,6 +4,7 @@ import MainLayout from "../layout/MainLayout";
 
 import HomePage from "../pages/Home/Home";
 import Cv from "../pages/CV/CV";
+import ProjectDetails from "../pages/ProjectDetails/ProjectDetails";
 
 const AppRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const AppRoutes = () => {
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/cv" element={<Cv />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>
