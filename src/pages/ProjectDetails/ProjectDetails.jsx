@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 import "./ProjectDetails.css";
 
@@ -6,6 +7,14 @@ import projects from "../../data/projects";
 
 const ProjectDetails = () => {
     const { id } = useParams();
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "auto",
+        });
+    }, [id]);
 
     const project = projects.find(
         (item) => item.id === id
