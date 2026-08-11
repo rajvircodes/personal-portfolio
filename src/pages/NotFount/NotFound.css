@@ -1,0 +1,37 @@
+.not-found {
+  min-height: calc(100vh - 72px);
+
+  display: flex;
+
+  align-items: center;
+}
+
+.not-found__content {
+  text-align: center;
+}
+
+.not-found__code {
+  margin-bottom: 0.5rem;
+
+  color: var(--primary-color);
+
+  font-size: clamp(5rem, 15vw, 10rem);
+
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.not-found h1 {
+  margin-bottom: 1rem;
+
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+.not-found__message {
+  max-width: 500px;
+
+  margin: 0 auto 2rem;
+
+  color: var(--text-light);
+}

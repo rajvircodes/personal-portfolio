@@ -5,6 +5,7 @@ import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/Home/Home";
 import Cv from "../pages/CV/CV";
 import ProjectDetails from "../pages/ProjectDetails/ProjectDetails";
+import NotFound from "../pages/NotFount/NotFound";
 
 const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/cv" element={<Cv />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
