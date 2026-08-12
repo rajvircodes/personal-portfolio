@@ -1,109 +1,127 @@
 const projects = [
   {
-    id: "devflow-api",
-    title: "DevFlow API",
+    id: "zerodha-clone",
+
+    title: "Zerodha Clone",
+
     description:
-      "A production-focused backend API built with TypeScript, PostgreSQL and Prisma.",
-    image:
-      "https://i.pinimg.com/736x/ab/a6/a5/aba6a5eb45ce6507e58a13f7902383d2.jpg",
-    technologies: [
-      "TypeScript",
-      "Node.js",
-      "Express.js",
-      "PostgreSQL",
-      "Prisma",
-    ],
-    github: "https://github.com/rajvircodes/devflow-api",
-    live: "https://api.devflow-dummy.io/v1/health",
+      "A full-stack trading platform inspired by Zerodha, featuring simulated order placement, watchlists, holdings, and portfolio management.",
+
+    image: "../public/zerodha-prev.png",
+    technologies: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS"],
+
+    github: "https://github.com/rajvircodes/zerodha-clone",
+
+    live: "https://zerodha-clone-two-phi.vercel.app/",
+
     details: {
       problem:
-        "Building a structured backend project to practice production-oriented API development and scalable architecture.",
+        "Understanding how trading platforms structure watchlists, simulated order workflows, holdings, and portfolio data while keeping the frontend and backend synchronized.",
+
       solution:
-        "Designed a REST API using TypeScript, Express.js, PostgreSQL and Prisma with a modular backend architecture.",
+        "Built a full-stack MERN application inspired by Zerodha that implements simulated trading workflows, watchlists, order placement, holdings, and portfolio management.",
+
       features: [
-        "REST API architecture",
-        "User authentication",
-        "Database integration",
-        "Request validation",
+        "Interactive stock watchlists with simulated market data",
+        "Buy and sell order placement with portfolio updates",
+        "Holdings and portfolio balance management",
+        "User authentication and session management",
+        "Responsive trading dashboard",
       ],
+
       challenges: [
-        "Designing a maintainable backend structure",
-        "Working with Prisma and PostgreSQL",
-        "Managing authentication and protected routes",
+        "Designing database models for users, orders, holdings, and portfolio data",
+        "Maintaining accurate portfolio calculations after simulated trades",
+        "Synchronizing frontend state with backend trading operations",
       ],
+
       learning:
-        "This project helped strengthen my understanding of TypeScript, relational databases, Prisma and backend architecture.",
+        "Strengthened my understanding of full-stack MERN architecture, business logic, state synchronization, database modeling, and building complex dashboard workflows.",
     },
   },
+
   {
-    id: "pulse-metrics-dashboard",
-    title: "Pulse Metrics Dashboard",
+    id: "filmio",
+
+    title: "filmIO",
+
     description:
-      "A real-time analytics dashboard monitoring server health, microservice latency, and system events.",
-    image:
-      "https://i.pinimg.com/736x/e7/6c/80/e76c802616f3488b82dbb4c943a007c5.jpg",
-    technologies: [
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Chart.js",
-      "WebSockets",
-    ],
-    github: "https://github.com/rajvircodes/pulse-metrics",
-    live: "https://pulse-metrics-dummy.vercel.app",
+      "A movie discovery application powered by the TMDB API, featuring search, trending titles, genre filtering, detailed movie information, and trailer previews.",
+
+    image: "../public/filmio-prev.png",
+
+    technologies: ["React", "TMDB API", "JavaScript", "Tailwind CSS"],
+
+    github: "https://github.com/rajvircodes/movie-app-react",
+
+    live: "https://movie-app-react-opal-two.vercel.app/",
+
     details: {
       problem:
-        "DevOps teams lack unified, low-latency visibility into distributed system metrics and error logs.",
+        "Creating a fast and responsive movie discovery experience capable of browsing a large media catalog while keeping search and filtering interactions smooth.",
+
       solution:
-        "Developed a responsive frontend dashboard powered by WebSocket streams for real-time visualization of key performance indicators.",
+        "Built a React application that integrates the TMDB REST API with asynchronous data fetching, debounced search, genre filtering, and detailed movie views.",
+
       features: [
-        "Live WebSocket streaming charts",
-        "Customizable widget drag-and-drop layout",
-        "Dark/Light theme toggle",
-        "Exportable PDF report generation",
+        "Movie and TV series search with debouncing",
+        "Trending and top-rated content",
+        "Genre-based catalog filtering",
+        "Detailed movie pages with cast and ratings",
+        "Trailer previews",
+        "Responsive movie grid optimized for mobile",
       ],
+
       challenges: [
-        "Preventing UI lag during high-frequency data updates",
-        "Managing dynamic client-side layout states",
-        "Handling sudden WebSocket disconnects gracefully",
+        "Optimizing API requests to avoid unnecessary calls and re-renders",
+        "Handling missing poster images and incomplete API data",
+        "Managing asynchronous API states across different views",
       ],
+
       learning:
-        "Gained deep experience in state management optimizations, WebSocket connection lifecycle, and data visualization libraries.",
+        "Improved my understanding of third-party REST API integration, asynchronous state management, debounced search, error handling, and component-based React architecture.",
     },
   },
+
   {
-    id: "nexus-e-commerce",
-    title: "Nexus E-Commerce Platform",
+    id: "ai-code-reviewer",
+
+    title: "AI Code Reviewer",
+
     description:
-      "A full-stack e-commerce store featuring dynamic inventory management, secure payments, and order tracking.",
-    image:
-      "https://i.pinimg.com/736x/e2/06/96/e2069654422aa0e331666e148015bba6.jpg",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Stripe API",
-      "Tailwind CSS",
-      "MongoDB",
-    ],
-    github: "https://github.com/rajvircodes/nexus-shop",
-    live: "https://nexus-shop-dummy.vercel.app",
+      "An AI-powered developer tool that reviews submitted code, identifies potential issues, and provides structured suggestions for improving code quality and performance.",
+
+    image: "../public/code-review-prev.png",
+
+    technologies: ["MongoDB", "Express.js", "React", "Node.js", "Gemini API"],
+
+    github: "https://github.com/rajvircodes/AI-code-reviewer",
+
+    live: "https://ai-code-reviewer-sooty-ten.vercel.app/",
+
     details: {
       problem:
-        "Small businesses struggle with slow checkout pipelines and complex multi-vendor product listings.",
+        "Developers can spend significant time manually reviewing code for potential bugs, maintainability issues, and opportunities for improvement.",
+
       solution:
-        "Built a server-side rendered store with seamless Stripe integration and an intuitive admin panel for product updates.",
+        "Built a MERN application integrated with the Google Gemini API that analyzes submitted code and generates structured AI-powered review feedback.",
+
       features: [
-        "Stripe checkout integration",
-        "Server-Side Rendering (SSR) for SEO",
-        "Cart persistence using LocalStorage & Cookies",
-        "Admin panel for product CRUD operations",
+        "AI-powered code review and issue detection",
+        "Code improvement and refactoring suggestions",
+        "Syntax-highlighted code editor",
+        "Structured Markdown review output",
+        "Review history for authenticated users",
       ],
+
       challenges: [
-        "Synchronizing frontend cart state with real-time stock levels",
-        "Securing webhook endpoints for asynchronous payment verification",
+        "Designing prompts that produce consistent and useful review responses",
+        "Handling different programming languages and code formats",
+        "Rendering AI-generated Markdown and code blocks reliably",
       ],
+
       learning:
-        "Mastered serverless database queries, Webhook handling with payment gateways, and Next.js App Router patterns.",
+        "Gained practical experience integrating generative AI APIs into a full-stack application, designing effective prompts, handling AI-generated content, and building developer-focused tools.",
     },
   },
 ];
