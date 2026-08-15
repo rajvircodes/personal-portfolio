@@ -17,7 +17,7 @@ const HomePage = lazy(() =>
 );
 
 const Cv = lazy(() =>
-  import("../pages/CV/CV")
+  import("../pages/CV/CV.jsx")
 );
 
 const ProjectDetails = lazy(() =>
