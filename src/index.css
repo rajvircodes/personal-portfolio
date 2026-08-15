@@ -7,22 +7,20 @@
 /* ===========================
    CSS Variables
 =========================== */
-
 :root {
-  --primary-color: #2563eb;
-  --primary-hover: #1d4ed8;
+  --primary-color: #ff5a1f;
+  --secondary-color: #ff8a3d;
 
-  --background-color: #0f172a;
-  --surface-color: #1e293b;
+  --background-color: #080808;
+  --surface-color: #111111;
 
-  --text-color: #f8fafc;
-  --text-light: #94a3b8;
+  --text-color: #ffffff;
+  --text-light: #a3a3a3;
 
-  --border-color: #334155;
-
-  --max-width: 1200px;
+  --border-color: #292929;
 
   --transition: 0.3s ease;
+  --max-width: 1200px;
 }
 
 *,

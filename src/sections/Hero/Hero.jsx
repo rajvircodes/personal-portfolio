@@ -3,18 +3,41 @@ import { Link } from "react-router-dom";
 import "./Hero.css";
 
 import profile from "../../data/profile";
-import social from "../../data/social";
+
+import desktopHero from "../../assets/hero-desktop.png";
+import mobileHero from "../../assets/profile.png";
 
 const Hero = () => {
     return (
-        <section id="hero" className="hero section">
+        <section id="hero" className="hero">
             <div className="container hero__container">
 
+                {/* Hero Image */}
+                <div className="hero__image-wrapper">
+
+                    <picture className="hero__picture">
+                        {/* Mobile Image */}
+                        <source
+                            media="(max-width: 767px)"
+                            srcSet={mobileHero}
+                        />
+
+                        {/* Desktop Image */}
+                        <img
+                            src={desktopHero}
+                            alt={`${profile.name} profile`}
+                            className="hero__image"
+                        />
+                    </picture>
+
+                </div>
+
+                {/* Hero Content */}
                 <div className="hero__content">
 
-                    <p className="hero__greeting">
+                    {/* <p className="hero__greeting">
                         Hello, I'm
-                    </p>
+                    </p> */}
 
                     <h1 className="hero__name">
                         {profile.name}
@@ -23,10 +46,6 @@ const Hero = () => {
                     <h2 className="hero__role">
                         {profile.role}
                     </h2>
-
-                    <p className="hero__intro">
-                        {profile.intro}
-                    </p>
 
                     <div className="hero__actions">
 
@@ -45,36 +64,6 @@ const Hero = () => {
                         </Link>
 
                     </div>
-
-                    <div className="hero__socials">
-
-                        <a
-                            href={social.github}
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            GitHub
-                        </a>
-
-                        <a
-                            href={social.linkedin}
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            LinkedIn
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div className="hero__image-wrapper">
-
-                    <img
-                        src={profile.avatar}
-                        alt={`${profile.name} profile`}
-                        className="hero__image"
-                    />
 
                 </div>
 
