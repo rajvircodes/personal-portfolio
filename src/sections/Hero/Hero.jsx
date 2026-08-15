@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import { useEffect, useRef } from "react";
 import "./Hero.css";
 
 import profile from "../../data/profile";
@@ -39,8 +39,16 @@ const Hero = () => {
                         Hello, I'm
                     </p> */}
 
-                    <h1 className="hero__name">
+                    {/* <h1 className="hero__name">
                         {profile.name}
+                    </h1> */}
+
+                    <h1 className="hero__name">
+                        {"Rajvirsinh".split("").map((letter, index) => (
+                            <span key={index} className="hero__letter">
+                                {letter}
+                            </span>
+                        ))}
                     </h1>
 
                     <h2 className="hero__role">

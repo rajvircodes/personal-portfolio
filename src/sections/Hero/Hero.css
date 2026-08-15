@@ -208,14 +208,16 @@
   margin-bottom: 0.5rem;
 
   color: var(--text-color);
-
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1em;
   font-size: clamp(3.5rem, 8vw, 7rem);
 
   font-weight: 800;
 
   line-height: 0.95;
 
-  letter-spacing: -0.05em;
+  letter-spacing: 0.07em;
 
   text-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
 }
@@ -228,7 +230,7 @@
   max-width: 850px;
 
   margin-bottom: 1.5rem;
-
+  font-family: "Outfit", sans-serif;
   color: #f1f1f1;
 
   font-size: clamp(1.3rem, 3vw, 2.2rem);
@@ -300,7 +302,7 @@
   }
 
   .hero__content {
-    bottom: 3rem;
+    bottom: 0.4rem;
   }
 }
 

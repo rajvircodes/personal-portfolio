@@ -54,9 +54,16 @@ const Navbar = () => {
             <div className="container navbar__container">
 
                 {/* Logo */}
-                <Link to="/" className="navbar__logo">
+                <a
+                    href="#hero"
+                    className="navbar__logo"
+                    onClick={(event) => {
+                        event.preventDefault();
+                        handleSectionNavigation("#hero");
+                    }}
+                >
                     Rajvirsinh
-                </Link>
+                </a>
 
                 {/* Desktop Navigation */}
                 <nav className="navbar__nav">

@@ -1,0 +1,41 @@
+@import "mouse-follower/dist/mouse-follower.min.css";
+
+.mf-cursor {
+  z-index: 99999;
+}
+
+/* Default state size override */
+.mf-cursor:before {
+  width: 100px !important;
+  height: 100px !important;
+
+  background: var(--primary-color);
+
+  opacity: 0.9;
+
+  box-shadow:
+    0 0 10px rgba(255, 90, 31, 0.8),
+    0 0 25px rgba(255, 90, 31, 0.55),
+    0 0 55px rgba(255, 90, 31, 0.3);
+
+  filter: blur(1px);
+}
+
+/* Hover state on clickable elements */
+.mf-cursor.-pointer:before {
+  /* Lowered from 1.8 to 1.3 since base cursor is now larger (45px * 1.3 ≈ 58px) */
+  transform: scale(0.4) !important;
+
+  background: rgba(255, 90, 31, 0.25);
+
+  box-shadow:
+    0 0 15px rgba(255, 90, 31, 0.9),
+    0 0 35px rgba(255, 90, 31, 0.6),
+    0 0 70px rgba(255, 90, 31, 0.35);
+}
+
+@media (max-width: 767px) {
+  .mf-cursor {
+    display: none;
+  }
+}
