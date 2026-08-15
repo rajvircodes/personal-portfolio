@@ -5,7 +5,9 @@ const profile = {
   role: "Backend Focused MERN Stack Developer",
 
   intro:
-    "I build scalable web applications using React, Node.js, Express.js and MongoDB with a strong focus on backend architecture, clean code and performance.",
+    "I build practical web applications and backend systems with a focus on clean architecture, APIs, databases, and real-world problem solving.",
+
+    location:"India",
 
   resume: "../public/resume.pdf",
 

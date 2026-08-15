@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./Hero.css";
 
 import profile from "../../data/profile";
@@ -8,14 +10,13 @@ const Hero = () => {
         <section id="hero" className="hero section">
             <div className="container hero__container">
 
-                {/* Left Content */}
                 <div className="hero__content">
 
                     <p className="hero__greeting">
                         Hello, I'm
                     </p>
 
-                    <h1 className="hero__title">
+                    <h1 className="hero__name">
                         {profile.name}
                     </h1>
 
@@ -23,11 +24,12 @@ const Hero = () => {
                         {profile.role}
                     </h2>
 
-                    <p className="hero__description">
+                    <p className="hero__intro">
                         {profile.intro}
                     </p>
 
-                    <div className="hero__buttons">
+                    <div className="hero__actions">
+
                         <a
                             href="/#projects"
                             className="btn"
@@ -35,12 +37,12 @@ const Hero = () => {
                             View Projects
                         </a>
 
-                        <a
-                            href={profile.resume}
+                        <Link
+                            to="/cv"
                             className="btn hero__resume"
                         >
-                            Download Resume
-                        </a>
+                            View Resume
+                        </Link>
 
                     </div>
 
@@ -62,24 +64,16 @@ const Hero = () => {
                             LinkedIn
                         </a>
 
-                        <a
-                            href={`mailto:${social.email}`}
-                        >
-                            Email
-                        </a>
-
                     </div>
 
                 </div>
 
-                {/* Right Side */}
-
-                <div className="hero__image">
+                <div className="hero__image-wrapper">
 
                     <img
                         src={profile.avatar}
-                        alt={profile.name}
-                        loading="eager"
+                        alt={`${profile.name} profile`}
+                        className="hero__image"
                     />
 
                 </div>
