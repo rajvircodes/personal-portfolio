@@ -1,5 +1,6 @@
 import "./ProjectCard.css";
 import { Link } from "react-router-dom";
+
 const ProjectCard = ({ project }) => {
     return (
         <article className="project-card">
@@ -10,6 +11,7 @@ const ProjectCard = ({ project }) => {
                         src={project.image}
                         alt={`${project.title} preview`}
                         loading="lazy"
+                        draggable="false"
                     />
                 </div>
             )}

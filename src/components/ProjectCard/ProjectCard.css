@@ -1,27 +1,121 @@
+/* =========================================
+   Project Card
+   ========================================= */
+
 .project-card {
+  position: relative;
+
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   overflow: hidden;
 
-  background: var(--surface-color);
+  /*
+       IMPORTANT:
+       Keep this mostly opaque so cards behind
+       cannot show through the active card.
+    */
+  background: rgba(10, 10, 10, 0.96);
 
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
-  border-radius: 12px;
+  border-radius: 28px;
 
-  transition: var(--transition);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+
+  isolation: isolate;
+
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
 }
+
+/* =========================================
+   Orange Corner Glow
+   ========================================= */
+
+.project-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  top: -140px;
+  right: -80px;
+
+  background: var(--primary-color);
+
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  opacity: 0.22;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s ease;
+}
+
+/* =========================================
+   Bottom Orange Glow
+   ========================================= */
+
+.project-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  bottom: -130px;
+  left: -80px;
+
+  background: var(--primary-color);
+
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  opacity: 0.1;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+/* =========================================
+   Hover
+   ========================================= */
 
 .project-card:hover {
-  transform: translateY(-5px);
+  border-color: rgba(255, 90, 31, 0.45);
 
-  border-color: var(--primary-color);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.55),
+    0 0 35px rgba(255, 90, 31, 0.08);
 }
 
-/* Image */
+.project-card:hover::before {
+  opacity: 0.32;
+
+  transform: scale(1.15);
+}
+
+/* =========================================
+   Image
+   ========================================= */
 
 .project-card__image {
+  position: relative;
+
   aspect-ratio: 16 / 9;
 
   overflow: hidden;
@@ -31,82 +125,262 @@
   width: 100%;
   height: 100%;
 
+  display: block;
+
   object-fit: cover;
 
-  transition: var(--transition);
+  transition: transform 0.6s ease;
 }
 
 .project-card:hover .project-card__image img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
-/* Content */
+/* =========================================
+   Image Bottom Gradient
+   ========================================= */
+
+.project-card__image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 55%,
+    rgba(10, 10, 10, 0.75)
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================
+   Content
+   ========================================= */
 
 .project-card__content {
+  position: relative;
+
+  z-index: 2;
+
   display: flex;
   flex-direction: column;
 
   flex: 1;
 
-  padding: 1.5rem;
+  padding: 1.75rem;
 }
+
+/* =========================================
+   Title
+   ========================================= */
 
 .project-card__title {
   margin-bottom: 0.75rem;
 
-  font-size: 1.4rem;
+  color: var(--text-color);
+
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  letter-spacing: 0.01em;
 }
+
+/* =========================================
+   Description
+   ========================================= */
 
 .project-card__description {
+  margin-bottom: 1.35rem;
+
   color: var(--text-light);
 
-  margin-bottom: 1.25rem;
+  line-height: 1.7;
 }
 
-/* Technologies */
+/* =========================================
+   Technologies
+   ========================================= */
 
 .project-card__technologies {
   display: flex;
 
   flex-wrap: wrap;
 
-  gap: 0.5rem;
+  gap: 0.55rem;
 
-  margin-bottom: 1.5rem;
+  list-style: none;
+
+  margin: 0 0 1.5rem;
+  padding: 0;
 }
 
 .project-card__technologies li {
-  padding: 0.35rem 0.6rem;
+  padding: 0.4rem 0.75rem;
 
-  background: var(--background-color);
+  background: rgba(255, 255, 255, 0.055);
 
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.13);
 
-  border-radius: 5px;
+  border-radius: 999px;
 
   color: var(--text-light);
 
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
-/* Links */
+.project-card__technologies li:hover {
+  background: rgba(255, 90, 31, 0.12);
+
+  border-color: rgba(255, 90, 31, 0.4);
+
+  color: var(--primary-color);
+}
+
+/* =========================================
+   Links
+   ========================================= */
 
 .project-card__links {
   display: flex;
 
-  gap: 1rem;
+  flex-wrap: wrap;
+
+  gap: 0.7rem;
 
   margin-top: auto;
 }
 
 .project-card__links a {
-  color: var(--primary-color);
+  display: inline-flex;
 
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.65rem 1rem;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 999px;
+
+  color: var(--text-light);
+
+  font-size: 0.85rem;
   font-weight: 500;
 
-  transition: var(--transition);
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .project-card__links a:hover {
-  color: var(--text-color);
+  background: var(--primary-color);
+
+  border-color: var(--primary-color);
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(255, 90, 31, 0.2);
+}
+
+/* =========================================
+   View Project - Main Button
+   ========================================= */
+
+.project-card__links a:first-child {
+  background: var(--primary-color);
+
+  border-color: var(--primary-color);
+
+  color: #ffffff;
+
+  box-shadow: 0 8px 22px rgba(255, 90, 31, 0.18);
+}
+
+.project-card__links a:first-child:hover {
+  background: transparent;
+
+  color: var(--primary-color);
+
+  box-shadow: none;
+}
+
+/* =========================================
+   Mobile
+   ========================================= */
+
+@media (max-width: 599px) {
+  .project-card {
+    border-radius: 24px;
+  }
+
+  .project-card__content {
+    padding: 1.4rem;
+  }
+
+  .project-card__title {
+    font-size: 1.3rem;
+  }
+
+  .project-card__description {
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+  }
+
+  .project-card__links {
+    gap: 0.5rem;
+  }
+
+  .project-card__links a {
+    padding: 0.6rem 0.85rem;
+
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================
+   Reduced Motion
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card img,
+  .project-card__links a {
+    transition: none;
+  }
+}
+
+@media (max-width: 599px) {
+  .project-card__links {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  .project-card__links a {
+    white-space: nowrap;
+    flex: 1;
+    text-align: center;
+    font-size: 0.78rem;
+    padding: 0.55rem 0.6rem;
+  }
 }

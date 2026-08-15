@@ -1,17 +1,457 @@
-.projects__grid {
-  display: grid;
+/* =========================================
+   Projects Section
+   ========================================= */
 
-  gap: 1.5rem;
+.projects {
+  position: relative;
+
+  overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  .projects__grid {
-    grid-template-columns: repeat(2, 1fr);
+/* =========================================
+   Carousel
+   ========================================= */
+
+.projects__carousel {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 3rem;
+
+  /*
+     * Important for mobile swipe.
+     */
+  touch-action: pan-y;
+
+  user-select: none;
+}
+
+/* =========================================
+   Stage
+   ========================================= */
+
+.projects__stage {
+  position: relative;
+
+  width: 100%;
+
+  height: 620px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1200px;
+}
+
+/* =========================================
+   Individual Slide
+   ========================================= */
+
+.projects__slide {
+  position: absolute;
+
+  width: min(58%, 720px);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.65s ease,
+    filter 0.65s ease;
+
+  will-change: transform;
+
+  pointer-events: auto;
+}
+
+/*
+ * Position classes
+ *
+ * We use data-position because it is
+ * very easy to control the depth.
+ */
+
+/* =========================================
+   Center Card
+   ========================================= */
+
+.projects__slide[data-position="0"] {
+  z-index: 10;
+
+  width: min(58%, 720px);
+
+  transform: translateX(0) scale(1);
+
+  opacity: 1;
+
+  filter: none;
+
+  cursor: default;
+}
+
+/* =========================================
+   Immediate Left / Right
+   ========================================= */
+
+.projects__slide[data-position="-1"] {
+  z-index: 5;
+
+  width: min(48%, 620px);
+
+  transform: translateX(-72%) scale(0.78);
+
+  opacity: 0.55;
+
+  filter: brightness(0.55);
+
+  pointer-events: auto;
+}
+
+.projects__slide[data-position="1"] {
+  z-index: 5;
+
+  width: min(48%, 620px);
+
+  transform: translateX(72%) scale(0.78);
+
+  opacity: 0.55;
+
+  filter: brightness(0.55);
+
+  pointer-events: auto;
+}
+
+/* =========================================
+   Far Left / Right
+   ========================================= */
+
+.projects__slide[data-position="-2"] {
+  z-index: 2;
+
+  width: min(42%, 540px);
+
+  transform: translateX(-125%) scale(0.62);
+
+  opacity: 0.22;
+
+  filter: brightness(0.35);
+
+  pointer-events: auto;
+}
+
+.projects__slide[data-position="2"] {
+  z-index: 2;
+
+  width: min(42%, 540px);
+
+  transform: translateX(125%) scale(0.62);
+
+  opacity: 0.22;
+
+  filter: brightness(0.35);
+
+  pointer-events: auto;
+}
+
+/* =========================================
+   Center Card Glow
+   ========================================= */
+
+.projects__slide--active {
+  filter: none;
+
+  z-index: 10;
+}
+
+.projects__slide--active .project-card {
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.65),
+    0 0 45px rgba(255, 90, 31, 0.08);
+}
+
+/* =========================================
+   Navigation Arrows
+   ========================================= */
+
+.projects__arrow {
+  position: absolute;
+
+  z-index: 20;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 50%;
+
+  background: rgba(10, 10, 10, 0.9);
+
+  color: var(--text-color);
+
+  font-size: 1.4rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.projects__arrow:hover {
+  background: var(--primary-color);
+
+  border-color: var(--primary-color);
+
+  color: #ffffff;
+
+  transform: translateY(-50%) scale(1.08);
+
+  box-shadow: 0 0 25px rgba(255, 90, 31, 0.25);
+}
+
+.projects__arrow--left {
+  left: 2%;
+}
+
+.projects__arrow--right {
+  right: 2%;
+}
+
+/* =========================================
+   Progress Dots
+   ========================================= */
+
+.projects__dots {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  margin-top: 1.5rem;
+}
+
+.projects__dot {
+  width: 8px;
+  height: 8px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.projects__dot--active {
+  width: 28px;
+
+  background: var(--primary-color);
+
+  box-shadow: 0 0 15px rgba(255, 90, 31, 0.35);
+}
+
+/* =========================================
+   Tablet
+   ========================================= */
+
+@media (max-width: 900px) {
+  .projects__stage {
+    height: 560px;
+  }
+
+  .projects__slide[data-position="-1"] {
+    transform: translateX(-70%) scale(0.74);
+  }
+
+  .projects__slide[data-position="1"] {
+    transform: translateX(70%) scale(0.74);
+  }
+
+  .projects__slide[data-position="-2"] {
+    transform: translateX(-115%) scale(0.58);
+  }
+
+  .projects__slide[data-position="2"] {
+    transform: translateX(115%) scale(0.58);
+  }
+
+  .projects__arrow--left {
+    left: 1%;
+  }
+
+  .projects__arrow--right {
+    right: 1%;
   }
 }
 
-@media (min-width: 1100px) {
-  .projects__grid {
-    grid-template-columns: repeat(3, 1fr);
+/* =========================================
+   Mobile
+   ========================================= */
+
+@media (max-width: 767px) {
+  .projects__carousel {
+    margin-top: 2rem;
+  }
+
+  .projects__stage {
+    height: 540px;
+  }
+
+  /*
+     * Center card becomes larger relative
+     * to the screen.
+     */
+
+  .projects__slide[data-position="0"] {
+    width: 76%;
+  }
+
+  /*
+     * Side cards become smaller and sit
+     * further behind.
+     */
+
+  .projects__slide[data-position="-1"] {
+    width: 68%;
+
+    transform: translateX(-63%) scale(0.68);
+
+    opacity: 0.38;
+
+    filter: brightness(0.45);
+  }
+
+  .projects__slide[data-position="1"] {
+    width: 68%;
+
+    transform: translateX(63%) scale(0.68);
+
+    opacity: 0.38;
+
+    filter: brightness(0.45);
+  }
+
+  /*
+     * Far cards.
+     */
+
+  .projects__slide[data-position="-2"] {
+    width: 62%;
+
+    transform: translateX(-105%) scale(0.52);
+
+    opacity: 0.12;
+
+    filter: brightness(0.3);
+  }
+
+  .projects__slide[data-position="2"] {
+    width: 62%;
+
+    transform: translateX(105%) scale(0.52);
+
+    opacity: 0.12;
+
+    filter: brightness(0.3);
+  }
+
+  /*
+     * Smaller arrows.
+     */
+
+  .projects__arrow {
+    width: 42px;
+    height: 42px;
+
+    font-size: 1.2rem;
+  }
+
+  .projects__arrow--left {
+    left: 0.5rem;
+  }
+
+  .projects__arrow--right {
+    right: 0.5rem;
+  }
+}
+
+/* =========================================
+   Small Mobile
+   ========================================= */
+
+@media (max-width: 480px) {
+  .projects__stage {
+    height: 500px;
+  }
+
+  .projects__slide[data-position="0"] {
+    width: 82%;
+  }
+
+  .projects__slide[data-position="-1"] {
+    width: 70%;
+
+    transform: translateX(-62%) scale(0.62);
+  }
+
+  .projects__slide[data-position="1"] {
+    width: 70%;
+
+    transform: translateX(62%) scale(0.62);
+  }
+
+  .projects__slide[data-position="-2"] {
+    display: none;
+  }
+
+  .projects__slide[data-position="2"] {
+    display: none;
+  }
+
+  .projects__arrow {
+    width: 38px;
+    height: 38px;
+
+    font-size: 1rem;
+  }
+}
+
+/* =========================================
+   Reduced Motion
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .projects__slide,
+  .projects__arrow,
+  .projects__dot {
+    transition: none;
   }
 }
