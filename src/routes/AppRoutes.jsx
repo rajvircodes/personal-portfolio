@@ -1,23 +1,87 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 import MainLayout from "../layout/MainLayout";
 
-import HomePage from "../pages/Home/Home";
-import Cv from "../pages/CV/CV";
-import ProjectDetails from "../pages/ProjectDetails/ProjectDetails";
-import NotFound from "../pages/NotFount/NotFound";
+
+// =========================================
+// Lazy Loaded Pages
+// =========================================
+
+const HomePage = lazy(() =>
+  import("../pages/Home/Home")
+);
+
+const Cv = lazy(() =>
+  import("../pages/CV/CV")
+);
+
+const ProjectDetails = lazy(() =>
+  import("../pages/ProjectDetails/ProjectDetails")
+);
+
+const NotFound = lazy(() =>
+  import("../pages/NotFount/NotFound")
+);
+
+
+// =========================================
+// Loading Fallback
+// =========================================
+
+const PageLoader = () => {
+  return (
+    <div className="page-loader">
+      Loading...
+    </div>
+  );
+};
+
+
+// =========================================
+// Routes
+// =========================================
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/cv" element={<Cv />} />
-          <Route path="/project/:id" element={<ProjectDetails />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+
+      <Suspense fallback={<PageLoader />}>
+
+        <Routes>
+
+          <Route element={<MainLayout />}>
+
+            <Route
+              path="/"
+              element={<HomePage />}
+            />
+
+            <Route
+              path="/cv"
+              element={<Cv />}
+            />
+
+            <Route
+              path="/project/:id"
+              element={<ProjectDetails />}
+            />
+
+            <Route
+              path="*"
+              element={<NotFound />}
+            />
+
+          </Route>
+
+        </Routes>
+
+      </Suspense>
+
     </BrowserRouter>
   );
 };
