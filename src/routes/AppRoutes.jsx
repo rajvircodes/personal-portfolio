@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import MainLayout from "../layout/MainLayout";
+import MainLayout from "../layout/MainLayout.jsx";
 
 
 // =========================================
@@ -13,7 +13,7 @@ import MainLayout from "../layout/MainLayout";
 // =========================================
 
 const HomePage = lazy(() =>
-  import("../pages/Home/Home")
+  import("../pages/Home/Home.jsx")
 );
 
 const Cv = lazy(() =>
@@ -25,7 +25,7 @@ const ProjectDetails = lazy(() =>
 );
 
 const NotFound = lazy(() =>
-  import("../pages/NotFount/NotFound")
+  import("../pages/NotFount/NotFound.jsx")
 );
 
 
