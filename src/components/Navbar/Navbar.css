@@ -23,8 +23,17 @@
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-color);
+  display: flex;
+  align-items: center;
 }
 
+.navbar__logo-image {
+  width: 45px;
+  background-color: var(--primary-color);
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
 /* ==========================
    Desktop Navigation
 ========================== */
@@ -81,6 +90,9 @@
   .navbar__nav,
   .navbar__resume {
     display: none;
+  }
+  .navbar__logo-image {
+    width: 40px;
   }
 
   .navbar__toggle {

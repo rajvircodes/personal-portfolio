@@ -21,6 +21,11 @@
 
   --transition: 0.3s ease;
   --max-width: 1200px;
+
+  --orange: #ff5a1f;
+  --orange-glow: rgba(255, 90, 31, 0.22);
+
+  --font-primary: "Outfit", sans-serif;
 }
 
 *,
@@ -40,6 +45,36 @@ body {
   background: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
+  position: relative;
+  background: #080808;
+  font-family: var(--font-primary);
+}
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  width: 700px;
+  height: 700px;
+
+  top: 15%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(
+    circle,
+    var(--orange-glow) 0%,
+    rgba(255, 90, 31, 0.1) 30%,
+    transparent 70%
+  );
+
+  filter: blur(60px);
+
+  pointer-events: none;
+
+  z-index: -1;
 }
 
 img {

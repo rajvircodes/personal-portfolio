@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 import "./Navbar.css";
 import navigation from "../../data/navigation";
@@ -62,7 +63,11 @@ const Navbar = () => {
                         handleSectionNavigation("#hero");
                     }}
                 >
-                    Rajvirsinh
+                    <img
+                        src={logo}
+                        alt="Rajvirsinh"
+                        className="navbar__logo-image"
+                    />
                 </a>
 
                 {/* Desktop Navigation */}

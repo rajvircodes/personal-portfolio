@@ -1,45 +1,283 @@
+/* =========================================
+   Skill Card
+   ========================================= */
+
 .skill-card {
-  padding: 1.5rem;
+  position: relative;
 
-  background: var(--surface-color);
+  min-height: 230px;
+  padding: 1.75rem;
 
-  border: 1px solid var(--border-color);
+  overflow: hidden;
 
-  border-radius: 12px;
+  /* Glass */
+  background: rgba(255, 255, 255, 0.055);
 
-  transition: var(--transition);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  /* Glass border */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 15px 40px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
 }
+
+/* =========================================
+   Orange Ambient Glow
+   ========================================= */
+
+.skill-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -90px;
+  right: -60px;
+
+  background: var(--primary-color);
+
+  border-radius: 50%;
+
+  filter: blur(75px);
+
+  opacity: 0.28;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s ease;
+}
+
+/* Small secondary glow */
+
+.skill-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  bottom: -80px;
+  left: -50px;
+
+  background: var(--primary-color);
+
+  border-radius: 50%;
+
+  filter: blur(70px);
+
+  opacity: 0.08;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   Hover
+   ========================================= */
 
 .skill-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
 
-  border-color: var(--primary-color);
+  border-color: rgba(255, 90, 31, 0.45);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 0 35px rgba(255, 90, 31, 0.08);
 }
+
+.skill-card:hover::before {
+  opacity: 0.4;
+
+  transform: scale(1.15);
+}
+
+/* =========================================
+   Category
+   ========================================= */
 
 .skill-card__title {
-  margin-bottom: 1.25rem;
+  position: relative;
 
-  font-size: 1.2rem;
+  z-index: 2;
+
+  margin-bottom: 1.5rem;
+
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  color: var(--text-color);
+
+  letter-spacing: 0.02em;
 }
+
+/* =========================================
+   Skills Container
+   ========================================= */
 
 .skill-card__list {
-  display: flex;
+  position: relative;
 
+  z-index: 2;
+
+  display: flex;
   flex-wrap: wrap;
 
-  gap: 0.75rem;
+  gap: 0.7rem;
+
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
 }
 
+/* =========================================
+   Skill Pills
+   ========================================= */
+
 .skill-card__item {
-  padding: 0.45rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
 
-  background: var(--background-color);
+  padding: 0.5rem 0.9rem;
 
-  border: 1px solid var(--border-color);
+  border-radius: 999px;
 
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.065);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
 
   color: var(--text-light);
 
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  animation: skillFloat 6s ease-in-out infinite;
+}
+
+/* =========================================
+   Floating Animation
+   ========================================= */
+
+@keyframes skillFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(4px, -5px);
+  }
+
+  50% {
+    transform: translate(-3px, -8px);
+  }
+
+  75% {
+    transform: translate(-5px, -3px);
+  }
+}
+
+/* Different timing = natural movement */
+
+.skill-card__item:nth-child(2) {
+  animation-delay: -1.5s;
+}
+
+.skill-card__item:nth-child(3) {
+  animation-delay: -3s;
+}
+
+.skill-card__item:nth-child(4) {
+  animation-delay: -4.5s;
+}
+
+.skill-card__item:nth-child(5) {
+  animation-delay: -2s;
+}
+
+.skill-card__item:nth-child(6) {
+  animation-delay: -3.5s;
+}
+
+/* =========================================
+   Pill Hover
+   ========================================= */
+
+.skill-card__item:hover {
+  background: rgba(255, 90, 31, 0.12);
+
+  border-color: rgba(255, 90, 31, 0.45);
+
+  color: var(--primary-color);
+
+  box-shadow: 0 0 20px rgba(255, 90, 31, 0.12);
+}
+
+/* =========================================
+   Reduced Motion
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card,
+  .skill-card__item {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* =========================================
+   Mobile
+   ========================================= */
+
+@media (max-width: 599px) {
+  .skill-card {
+    min-height: auto;
+
+    padding: 1.4rem;
+
+    border-radius: 24px;
+  }
+
+  .skill-card__title {
+    margin-bottom: 1.2rem;
+
+    font-size: 1.15rem;
+  }
+
+  .skill-card__list {
+    gap: 0.6rem;
+  }
+
+  .skill-card__item {
+    padding: 0.45rem 0.8rem;
+
+    font-size: 0.82rem;
+  }
 }
