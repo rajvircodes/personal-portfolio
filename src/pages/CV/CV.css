@@ -10,6 +10,20 @@
   text-align: center;
 }
 
+.cv__back {
+  display: inline-block;
+
+  margin-bottom: 2rem;
+
+  color: var(--text-light);
+
+  transition: var(--transition);
+}
+
+.cv__back:hover {
+  color: var(--primary-color);
+}
+
 .cv__header h1 {
   margin-bottom: 1rem;
 

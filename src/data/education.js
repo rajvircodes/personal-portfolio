@@ -17,9 +17,9 @@ const education = [
 
     degree: "Higher Secondary Education",
 
-    institution: "Your School",
+    institution: "RMSA",
 
-    period: "2021 — 2023",
+    period: "2020 — 2021",
 
     description:
       "Completed higher secondary education with a focus on building a strong academic foundation.",

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./CV.css";
 
 import profile from "../../data/profile";
@@ -9,11 +11,18 @@ const CV = () => {
 
                 <div className="cv__header">
 
+                    <Link
+                        to="/"
+                        className="cv__back"
+                    >
+                        ← Back to Portfolio
+                    </Link>
+
                     <h1>My Resume</h1>
 
                     <p>
                         A detailed overview of my education, skills,
-                        projects and development journey.
+                        projects, and development journey.
                     </p>
 
                     <div className="cv__actions">
@@ -43,7 +52,7 @@ const CV = () => {
 
                     <iframe
                         src={profile.resume}
-                        title="Resume Preview"
+                        title={`${profile.name}'s Resume`}
                     />
 
                 </div>
