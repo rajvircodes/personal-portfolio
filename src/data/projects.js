@@ -1,3 +1,8 @@
+import zerodhaImage from "../assets/projects/zerodha.png";
+import filmioImage from "../assets/projects/filmio.png";
+import aiCodeReviewerImage from "../assets/projects/ai-code-reviewer.png";
+
+// import zerodhaImage from '../assets/projects/zerodh'
 const projects = [
   {
     id: "zerodha-clone",
@@ -7,7 +12,7 @@ const projects = [
     description:
       "A full-stack trading platform inspired by Zerodha, featuring simulated order placement, watchlists, holdings, and portfolio management.",
 
-    image: "../public/zerodha-prev.png",
+    image: zerodhaImage,
     technologies: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS"],
 
     github: "https://github.com/rajvircodes/zerodha-clone",
@@ -48,7 +53,7 @@ const projects = [
     description:
       "A movie discovery application powered by the TMDB API, featuring search, trending titles, genre filtering, detailed movie information, and trailer previews.",
 
-    image: "../public/filmio-prev.png",
+    image: filmioImage,
 
     technologies: ["React", "TMDB API", "JavaScript", "Tailwind CSS"],
 
@@ -91,7 +96,7 @@ const projects = [
     description:
       "An AI-powered developer tool that reviews submitted code, identifies potential issues, and provides structured suggestions for improving code quality and performance.",
 
-    image: "../public/code-review-prev.png",
+    image: aiCodeReviewerImage,
 
     technologies: ["MongoDB", "Express.js", "React", "Node.js", "Gemini API"],
 
