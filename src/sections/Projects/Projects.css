@@ -412,6 +412,9 @@
     height: 500px;
   }
 
+  .project-card__links a:nth-child(2) {
+    display: none;
+  }
   .projects__slide[data-position="0"] {
     width: 82%;
   }

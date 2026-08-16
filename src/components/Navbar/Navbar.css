@@ -49,7 +49,8 @@
 .navbar__logo-image {
   width: 45px;
   height: auto;
-
+  background-color: var(--orange);
+  background-color: var(--text-color);
   display: block;
 
   object-fit: contain;
@@ -131,7 +132,7 @@
 
   .navbar__logo-image {
     width: 40px;
-    background-color: var(--primary-color);
+    background-color: var(--text-color);
   }
 
   /* Hamburger */

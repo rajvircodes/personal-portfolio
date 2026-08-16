@@ -17,7 +17,7 @@ const education = [
 
     degree: "Higher Secondary Education",
 
-    institution: "RMSA",
+    institution: "Jivan jyot vidhyalaya",
 
     period: "2020 — 2021",
 
