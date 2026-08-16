@@ -4,7 +4,6 @@
 
 .projects {
   position: relative;
-
   overflow: hidden;
 }
 
@@ -13,19 +12,21 @@
    ========================================= */
 
 .projects__carousel {
+  --projects-stage-height: 620px;
+
   position: relative;
 
   width: 100%;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   margin-top: 3rem;
 
   /*
-     * Important for mobile swipe.
-     */
+   * Important for mobile swipe.
+   */
   touch-action: pan-y;
 
   user-select: none;
@@ -39,8 +40,7 @@
   position: relative;
 
   width: 100%;
-
-  height: 620px;
+  height: var(--projects-stage-height);
 
   display: flex;
   align-items: center;
@@ -69,13 +69,6 @@
 
   pointer-events: auto;
 }
-
-/*
- * Position classes
- *
- * We use data-position because it is
- * very easy to control the depth.
- */
 
 /* =========================================
    Center Card
@@ -184,7 +177,12 @@
 
   z-index: 20;
 
-  top: 50%;
+  /*
+   * IMPORTANT:
+   * Center relative to the project stage,
+   * not the entire carousel including dots.
+   */
+  top: calc(var(--projects-stage-height) / 2);
 
   transform: translateY(-50%);
 
@@ -213,6 +211,11 @@
     color 0.3s ease,
     transform 0.3s ease,
     box-shadow 0.3s ease;
+
+  /*
+   * Prevent mobile tap highlight.
+   */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .projects__arrow:hover {
@@ -268,6 +271,8 @@
     width 0.3s ease,
     background 0.3s ease,
     box-shadow 0.3s ease;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 .projects__dot--active {
@@ -283,8 +288,8 @@
    ========================================= */
 
 @media (max-width: 900px) {
-  .projects__stage {
-    height: 560px;
+  .projects__carousel {
+    --projects-stage-height: 560px;
   }
 
   .projects__slide[data-position="-1"] {
@@ -318,26 +323,22 @@
 
 @media (max-width: 767px) {
   .projects__carousel {
+    --projects-stage-height: 540px;
+
     margin-top: 2rem;
   }
 
-  .projects__stage {
-    height: 540px;
-  }
-
   /*
-     * Center card becomes larger relative
-     * to the screen.
-     */
+   * Center card.
+   */
 
   .projects__slide[data-position="0"] {
     width: 76%;
   }
 
   /*
-     * Side cards become smaller and sit
-     * further behind.
-     */
+   * Side cards.
+   */
 
   .projects__slide[data-position="-1"] {
     width: 68%;
@@ -360,8 +361,8 @@
   }
 
   /*
-     * Far cards.
-     */
+   * Far cards.
+   */
 
   .projects__slide[data-position="-2"] {
     width: 62%;
@@ -383,9 +384,31 @@
     filter: brightness(0.3);
   }
 
+  /* =========================================
+     Mobile Description
+     ========================================= */
+
   /*
-     * Smaller arrows.
-     */
+   * Prevent long project descriptions from
+   * making the card unnecessarily tall.
+   *
+   * Full description remains available on
+   * desktop.
+   */
+  .project-card__description {
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    overflow: hidden;
+
+    margin-bottom: 1rem;
+  }
+
+  /*
+   * Smaller arrows.
+   */
 
   .projects__arrow {
     width: 42px;
@@ -408,16 +431,36 @@
    ========================================= */
 
 @media (max-width: 480px) {
-  .projects__stage {
-    height: 500px;
+  .projects__carousel {
+    --projects-stage-height: 500px;
   }
-
   .project-card__links a:nth-child(2) {
     display: none;
   }
+
+  .project-card__links {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .project-card__links a {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /*
+   * Center card.
+   */
+
   .projects__slide[data-position="0"] {
     width: 82%;
   }
+
+  /*
+   * Side cards.
+   */
 
   .projects__slide[data-position="-1"] {
     width: 70%;
@@ -431,6 +474,10 @@
     transform: translateX(62%) scale(0.62);
   }
 
+  /*
+   * Hide far cards on very small screens.
+   */
+
   .projects__slide[data-position="-2"] {
     display: none;
   }
@@ -439,11 +486,25 @@
     display: none;
   }
 
+  /*
+   * Smaller arrows.
+   */
+
   .projects__arrow {
     width: 38px;
     height: 38px;
 
     font-size: 1rem;
+  }
+
+  /*
+   * Slightly tighter description.
+   */
+
+  .project-card__description {
+    -webkit-line-clamp: 3;
+
+    margin-bottom: 0.85rem;
   }
 }
 
