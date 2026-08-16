@@ -1,7 +1,7 @@
 import "./Skills.css";
 
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import SkillCard from "../../components/SkillCard/SkillCard";
+import SectionTitle from "../../components/SectionTitle/SectionTitle.jsx";
+import SkillCard from "../../components/SkillCard/SkillCard.jsx";
 
 import skills from "../../data/skills";
 
